@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+*{
+    margin:0;
+    box-sizing: border-box;
+    padding: 0;
+
+}
+
+.admin_categori{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 20px;
+    background:linear-gradient(120deg,#3297dba8,#8d44adbe);
+    border-radius: 20px;
+}
+.delete_button{
+    font-size: 30px;
+    
+}

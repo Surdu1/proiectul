@@ -1,0 +1,148 @@
+
+*{
+    margin:0;
+    box-sizing: border-box;
+    
+}
+
+.card{
+    position: relative;
+}
+.slider{
+    width: 80%;
+    padding: 10px;
+    max-width: 1500px;
+    float:right;
+    background: none;
+}
+.carousel-item img{
+    border-radius: 10px;
+}
+.slider img{
+height: 36vw;
+}
+.categori{
+    height: calc(36vmax + 3px);
+    margin-top:7px;
+    margin-left: 5px;
+    width: 20%;
+    background: linear-gradient(120deg,#3297dbb2,#8d44adbe);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);
+    border-radius: 10px;
+
+}
+
+.cdn{
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+.container label{
+    font-size: 20px;
+    font-weight: 600;
+}
+@media(max-width: 500px) {
+    .cdn button{
+        display: none;
+    }
+}
+.cdn-cover{
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    margin:auto;
+    justify-content: center;
+}
+.cdn-text{
+    font-weight: 900;
+    margin: auto;
+    font-size: 30px;
+}
+.card{
+    margin: 0;
+}
+.slick-next.slick-arrow::before{
+    font-size: 30px;
+    color: #adadad;
+}
+.slick-prev.slick-arrow::before{
+    font-size: 30px;
+    color: #adadad;
+}
+@media(max-width: 600px) {
+    .slick-dots li{
+        display: none;
+    }
+}
+.categori-titlu{
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    width: 100%;
+}
+.categori-tipuri a{
+   text-decoration: none;
+   list-style-type: none;
+   font-weight: 800;
+   font-size: 25px;
+   line-height: 70px;
+   text-align: center;
+   margin:auto;
+   width: 100%;
+}
+.categori-tipuri a li{
+    width: 60%;
+    margin:auto;
+    transition: 1s all ease;
+}
+.categori-tipuri a:hover li {
+    background: rgba(199, 199, 199, 0.6);
+    border-radius: 15px;
+    width: 100%;
+}
+@media(max-width: 1200px){
+    .slider{
+        width: 100%;
+        padding:0;
+        float: none;
+    }
+    .slider img{
+        height: 43.5vw;
+        border-radius: 0;
+    }
+    .categori{
+        display: none;
+    }
+
+}
+@media(min-width: 1200px){
+    .full-slider{
+        display: flex;
+        max-width: 1500px;
+        justify-content: center;
+        margin: auto;
+    }
+}
+.container header h1{
+    text-align:center;
+}
+.melodie{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 20px;
+}
+.titlu_melodie{
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+.pret-melodie{
+    display:flex;
+    justify-content: space-between;
+    width: 100px;
+}
