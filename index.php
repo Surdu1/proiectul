@@ -30,10 +30,34 @@
     <i class='bx bxs-category-alt'></i> Category
     </div>
     <div class="categori-tipuri">
-    <a href="#" style="color: #fff;"><li><i class="fas fa-money-bill-wave"></i> Trap</li></a>
-    <a href="#" style="color: #fff;"><li><i class="fas fa-fire"></i> Pop</li></a>
-    <a href="#" style="color: #fff;"><li><i class="far fa-hand-peace"></i> Hip-Hop</li></a>
-    <a href="#" style="color: #fff;"><li><i class="fas fa-microphone"></i> Rap</li></a>
+    <a href="<?php 
+    $sql = "SELECT * FROM categori WHERE nume LIKE '%trap%'";
+    $result = mysqli_query($conectare,$sql);
+    $row = $result -> fetch_assoc();
+    echo 'categori_more/categoria.php?id='.$row['id'].'';
+     ?>" style="color: #fff;"><li><i class="fas fa-money-bill-wave"></i> Trap</li></a>
+
+    <a href="<?php 
+    $sql = "SELECT * FROM categori WHERE nume LIKE '%pop%'";
+    $result = mysqli_query($conectare,$sql);
+    $row = $result -> fetch_assoc();
+    echo 'categori_more/categoria.php?id='.$row['id'].'';
+     ?>" style="color: #fff;"><li><i class="fas fa-fire"></i> Pop</li></a>
+
+    <a href="<?php 
+    $sql = "SELECT * FROM categori WHERE nume LIKE '%hip-hop%'";
+    $result = mysqli_query($conectare,$sql);
+    $row = $result -> fetch_assoc();
+    echo 'categori_more/categoria.php?id='.$row['id'].'';
+     ?>" style="color: #fff;"><li><i class="far fa-hand-peace"></i> Hip-Hop</li></a>
+
+    <a href="<?php 
+    $sql = "SELECT * FROM categori WHERE nume = 'Rap'";
+    $result = mysqli_query($conectare,$sql);
+    $row = $result -> fetch_assoc();
+    echo 'categori_more/categoria.php?id='.$row['id'].'';
+     ?>" style="color: #fff;"><li><i class="fas fa-microphone"></i> Rap</li></a>
+
     <a href="categori_more/more.php" style="color: #fff;"><li><i class="fas fa-angle-double-right"></i> More</li></a>
     </div>
   </div>
@@ -49,25 +73,31 @@
       <img src="icon/img-principal.jfif"  class="d-block w-100"  alt="Imaginea nu a fost gasita">
       <div class="carousel-caption d-none d-md-block" style="top:28%;bottom:40%;">
         <h3 style="font-weight: 800;color:#fff;font-size: 3.4vmax">Search your beat future</h3>
-       <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+       <form class="d-flex" action="search/search.php">
+          <input style="border-radius: 30px" class="form-control me-2" type="search" name = "input" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success b-con" type="submit"><i class="fas fa-search"></i></button>
       </form>
         <p style="font-weight: 700;">Here are the new talents</p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="icon/img2.jpg" class="d-block w-100"  alt="Imaginea nu a fost gasita">
+      <img src="icon/img.jpg" class="d-block w-100"  alt="Imaginea nu a fost gasita">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <div class="silde2">
+        <img src = "icon/listen.svg" width="200">
+        <h5>O multitudine de negativuri</h5>
+        <p>NegativeMuzicale pune la dispozitie o multitudine de negativie pentru toate cateoriile</p>
+        </div>
       </div>
     </div>
     <div class="carousel-item">
       <img src="icon/img1.jpg" class="d-block w-100"  alt="Imaginea nu a fost gasita">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+      <div class="silde2">
+       <img src="icon/list.svg" width="200">
+       <h5>Frumusetiea muzici incepe cu talentul tau</h5>
+       <p>Produce muzica si indeplinesteti visul din totdeauna.</p>
+      </div>
       </div>
     </div>
   </div>
@@ -93,6 +123,9 @@ $sql = "SELECT * FROM melodi ORDER BY id DESC";
 $result = mysqli_query($conectare, $sql);   
 $il = 0;  
 while($row = $result -> fetch_assoc()){
+  if($il > 30){
+    break;
+  }
 $il++;
 echo '
 <div class="melodie">
@@ -120,6 +153,10 @@ echo '
 </script>
 ';
 echo "<h4>".$row['nume']."</h4>";
+$sll = "SELECT * FROM categori WHERE id = ".$row['categorie']."";
+$rest = mysqli_query($conectare,$sll);
+$res = $rest ->fetch_assoc();
+echo "<h4>".$res['nume']."</h4>";
 echo '<div class="pret-melodie">';
 echo "<h4>Pret: ".$row['pret']."</h4>";
 echo '<a href="cart/cart.php"><h4><i class="bx bx-cart"></i></h4></a>';
@@ -132,8 +169,21 @@ echo "Nu s-a putut conecta la baza de date";
 echo $e;
 }
 ?>
-               </div>
-                  </div>
+<a href="categori_more/more.php" style="font-size: 24px;font-weight: 800;text-decoration:none; text-align: center;list-style-type: none">
+<div title="link catre categori" style="color:#000;background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);padding:10px;margin-top: 20px;border-radius: 20px">
+<li><i class="fas fa-angle-double-right"></i> More</li>
+</div>
+</a>
+</div>
+      </div>
+<footer>
+<div class="img_footer">
+    <img src="icon/footer_img.svg">
+  </div>
+  <div class="pro_footer">
+   Drepturile de autor apartin in intreginme &copy;NegativeMuzicale orice incalcare se pedepseste prin lege
+  </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 

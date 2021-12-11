@@ -11,21 +11,15 @@ session_start();
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     <div class="coategory-modile">
         <li class="nav-item dropdown" style=" background: linear-gradient(120deg,#3297dbb2,#8d44adbe); border-radius: 10px">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="/categori_more/more.php"  aria-expanded="false">
               <span style="font-size: 20px;font-weight: 600;"> <i class='bx bxs-category-alt'></i> Category</span>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
         </li>
     </div>
     </ul>
-    <form class="d-flex mx-auto">
-        <input class="form-control me-2 f-con" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+    <form class="d-flex mx-auto" action="search/search.php">
+        <input class="form-control me-2 f-con" name = "input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success b-con" type="submit">Search</button>
       </form>
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -36,15 +30,9 @@ session_start();
         </li>
         <div class="coategory-desktop">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="/categori_more/more.php"    aria-expanded="false">
               <span style="font-size: 18px;font-weight: 700"> <i class='bx bxs-category-alt'></i> Category</span>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
             </li>
         </div>
         <li class="nav-item">
@@ -62,6 +50,29 @@ session_start();
           else{
           echo '<a class="nav-link" style="font-size:23px;" href="logout.php"><i class="fas fa-sign-out-alt"></i></a>';
           }
+          ?>
+        </li>
+        <li class="nav-item">
+          <?php
+        $bool_admin = false;
+          if(isset($_SESSION['id'])){
+          try{
+          $sql = "SELECT * FROM users";
+          $result = mysqli_query($conectare,$sql);
+          while($row = $result -> fetch_assoc()){
+              if($row['id'] == $_SESSION['id']){
+                  if($row['admin']){
+                    $bool_admin = true;
+                  }
+              }
+          }
+          }catch(Exception $e){
+          die("Ne pare rau nu s-a putut conecta la baza de date");
+          }
+         }
+         if($bool_admin){
+           echo '<a class="nav-link" style="font-size:23px;" href="admin/admin.php"><i class="fas fa-screwdriver"></i></a>';
+         }
           ?>
         </li>
       </ul>

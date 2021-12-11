@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.melodie{
+    display: grid;
+    grid-template-columns: 10% 40% 30% 20%;
+    background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 20px; 
+    width: 100%;
+}
+.search_result{   
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.php_melodi{
+    padding: 20px;
+}
+.php_melodi_nume{
+    text-align: center;
+    position: sticky;
+    position: -webkit-sticky;
+    top:30%;
+}
+.php_melodi_nume img{
+    width: 100px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.more_categori{
+    background: linear-gradient(120deg,#3297dba8,#8d44adbe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height: 270px;
+    margin: 20px;
+    font-size: 30px;
+    color: #000;
+    font-weight: 900; 
+    font-family: 'Dancing Script', cursive;
+    border: 3px solid rgba(0,0,0,0.2);
+    border-radius: 30px;
+    transition: .6s;
+    font-size: 40px;
+}
+
+.more_categori:hover{
+    font-size: 50px;
+    box-shadow: 4px 6px rgba(12, 106, 248, 0.2);
+}
+.f-con{
+    border-radius: 30px;
+}
+.b-con{
+    border-radius: 30px;
+}
+.cover_more{
+    display: flex;
+    flex-wrap: wrap;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+    margin-top: 30px;
+    padding: 20px;
+    margin-bottom: 0;
+    bottom: 0;
+}
+ .img_footer {
+    width: 100px;
+    
+}
+.img_footer img{
+    width: 100%;
+}
+.pro_footer{
+font-size: 20px;
+width: 80%;
+text-align: center;
+font-weight: 800;
+}
+.pret-melodie{
+    display: flex;
+    justify-content: space-between;
+}
+.nfound img{
+width: 40vw;
+max-width: 489px;
+}
+.nfound{
+    text-align: center;
+    
+}
+@media(max-width: 900px){
+    .php_melodi_nume{
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+    }
+    .search_result{   
+        display: block;
+    }
+    .cover_more{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .melodie{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media(max-width: 500px){
+    .melodie{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

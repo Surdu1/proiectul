@@ -62,14 +62,7 @@ height: 36vw;
 .card{
     margin: 0;
 }
-.slick-next.slick-arrow::before{
-    font-size: 30px;
-    color: #adadad;
-}
-.slick-prev.slick-arrow::before{
-    font-size: 30px;
-    color: #adadad;
-}
+
 @media(max-width: 600px) {
     .slick-dots li{
         display: none;
@@ -128,15 +121,17 @@ height: 36vw;
     text-align:center;
 }
 .melodie{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 15% 40% 30% 15%;
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     border-radius: 30px;
     margin-top: 10px;
     padding: 20px;
+    
+    
 }
 .titlu_melodie{
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    
     padding: 10px;
     border-radius: 20px;
     text-align: center;
@@ -144,5 +139,61 @@ height: 36vw;
 .pret-melodie{
     display:flex;
     justify-content: space-between;
+    min-width: 100px;
+}
+.container{
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 1200px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+    margin-top: 30px;
+    padding: 20px;
+}
+ .img_footer {
     width: 100px;
+    
+}
+.img_footer img{
+    width: 100%;
+}
+.pro_footer{
+font-size: 20px;
+width: 80%;
+text-align: center;
+font-weight: 800;
+}
+
+.b-con{
+    border-radius: 50px; 
+}
+@media(max-width: 560px){
+    .melodie{
+        display: flex;
+        flex-direction: column;
+    }
+    .container{
+    border-radius: 0;
+    }
+}
+
+.silde2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.882);
+    padding: 20px;
+    color: #fff;
+    border-radius: 20px;
+    margin-bottom: 4.5vw;
+}
+.silde2 img{
+    height: auto;
 }

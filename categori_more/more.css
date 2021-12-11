@@ -76,10 +76,6 @@ nav{
 .activ{
     color: #0d6efd;
 }
-.f-con{
-    border-radius: 10px;
-    
-}
 
 @media(min-width: 1000px){
     .f-con{
@@ -129,4 +125,11 @@ nav{
 }
 .img-style{
     border-radius: 50px;
+}
+.f-con{
+    border-radius: 50px;
+    width: 300px;
+}
+.b-con{
+    border-radius: 50px; 
 }

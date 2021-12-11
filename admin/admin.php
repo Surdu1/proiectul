@@ -1,16 +1,15 @@
 <?php
 session_start();
-require_once 'conectare/conectare.php';
-$bool_admin = true;
+require_once '../conectare/conectare.php';
+$bool_admin = false;
 if(isset($_SESSION['id'])){
     try{
     $sql = "SELECT * FROM users";
     $result = mysqli_query($conectare,$sql);
     while($row = $result -> fetch_assoc()){
         if($row['id'] == $_SESSION['id']){
-            if(!$row['admin']){
-               header("Location: index.php");
-               $bool_admin = false;
+            if($row['admin']){
+               $bool_admin = true;
             }
         }
     }
@@ -18,8 +17,8 @@ if(isset($_SESSION['id'])){
     die("Ne pare rau nu s-a putut conecta la baza de date");
     }
 }
-if($bool_admin){
-
+if(!$bool_admin){
+   header("Location: /");
 }
 ?>
 <!DOCTYPE html>
@@ -44,7 +43,19 @@ if($bool_admin){
         <i class="fas fa-user"></i><input type="text" placeholder="Numele Autor" name="autor">
         </div>
         <div class="nume_input">
-        <i class='bx bxs-category'></i><input type="text" placeholder="Catgorie" name="categorie">
+        <i class="fas fa-user"></i><input type="text" placeholder="Pret melodie" name="pret">
+        </div>
+        <div class="nume_input">
+        <i class='bx bxs-category'></i>
+        <select class="form-selector" name="categorie">
+        <?php
+        $sql = "SELECT * FROM categori";
+        $result = mysqli_query($conectare,$sql);
+        while($row = $result -> fetch_assoc()){
+            echo "<option value=".$row['id'].">".$row['nume']."</option>";
+        }
+        ?>
+      </select>
         </div>
         <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Introduce melodia</label>

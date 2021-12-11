@@ -1,0 +1,21 @@
+.melodie{
+    display: grid;
+    grid-template-columns: 15% 40% 30% 15%;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 20px;
+    
+}
+.pret-melodie{
+    display:flex;
+    justify-content: space-between;
+    min-width: 100px;
+}
+
+.f-con{
+    border-radius: 30px;
+}
+.b-con{
+    border-radius: 30px;
+}

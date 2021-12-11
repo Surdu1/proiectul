@@ -1,5 +1,25 @@
 <?php
-require_once 'conectare/conectare.php';
+require_once '../conectare/conectare.php';
+session_start();
+$bool_admin = false;
+if(isset($_SESSION['id'])){
+    try{
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($conectare,$sql);
+    while($row = $result -> fetch_assoc()){
+        if($row['id'] == $_SESSION['id']){
+            if($row['admin']){
+               $bool_admin = true;
+            }
+        }
+    }
+    }catch(Exception $e){
+    die("Ne pare rau nu s-a putut conecta la baza de date");
+    }
+}
+if(!$bool_admin){
+   header("Location: /");
+}else{
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $sql = "DELETE FROM categori WHERE id = '$id'";
@@ -39,6 +59,7 @@ if(isset($_POST['eliminare']) && !empty($_POST['eliminare'])){
             header("Location: admin_categori.php");
         }
     }
+  }
 }
 ?>
 <!DOCTYPE html>
